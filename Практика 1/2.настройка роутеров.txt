@@ -1,0 +1,56 @@
+---ROUTER 3---
+
+Router>en
+Router#conf t
+Router(config)#int fa0/0
+Router(config-if)#no shutdown
+Router(config-if)#ip address 10.9.1.2 255.255.255.0
+Router(config-if)#exit
+Router(config)#int fa1/0
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.3.1 255.255.255.0
+Router(config-if)#exit
+Router(config)#int fa0/1
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.10.5 255.255.255.252
+Router(config-if)#end
+Router#wr mem
+
+
+---ROUTER 2---
+
+Router>en
+Router#conf t
+Router(config)#int fa0/0
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.10.2 255.255.255.252
+Router(config-if)#exit
+Router(config)#int fa0/1
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.10.6 255.255.255.252
+Router(config-if)#exit
+Router(config)#int fa1/0
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.2.1 255.255.255.0
+Router(config-if)#end
+Router#wr mem
+
+
+---ROUTER 1---
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int fa0/0
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.10.1 255.255.255.252
+Router(config-if)#exit
+Router(config)#int fa1/0
+Router(config-if)#no shutdown
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#exit
+Router(config)#int fa0/1
+Router(config-if)#no shutdown
+Router(config-if)#ip address 10.9.1.1 255.255.255.0
+Router(config-if)#end
+Router#wr mem

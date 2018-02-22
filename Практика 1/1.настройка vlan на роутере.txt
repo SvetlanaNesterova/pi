@@ -1,0 +1,28 @@
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: no
+
+
+Press RETURN to get started!
+
+
+
+Router>enable
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int fa0/0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#
+Router(config)#interface fa0/0.2
+Router(config-subif)#no shutdown
+Router(config-subif)#encapsulation dot1Q 2
+Router(config-subif)#ip address 192.168.2.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#interface fa0/0.3
+Router(config-subif)#no shutdown
+Router(config-subif)#encapsulation dot1Q 3
+Router(config-subif)#ip address 192.168.3.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#end
+Router#

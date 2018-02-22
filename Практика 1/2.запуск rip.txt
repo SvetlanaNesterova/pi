@@ -1,0 +1,34 @@
+---ROUTER 1---
+
+Router>en
+Router#conf t
+Router(config)#router rip
+Router(config-router)#network 10.9.1.0
+Router(config-router)#network 192.168.10.0
+Router(config-router)#network 192.168.1.0
+Router(config-router)#end
+Router#wr mem
+
+
+---ROUTER 2---
+
+Router>en
+Router#conf t
+Router(config)#router rip
+Router(config-router)#network 192.168.10.0
+Router(config-router)#network 192.168.10.4
+Router(config-router)#network 192.168.2.0
+Router(config-router)#end
+Router#wr mem
+
+
+---ROUTER 3---
+
+Router>en
+Router#conf t
+Router(config)#router rip
+Router(config-router)#network 10.9.1.0
+Router(config-router)#network 192.168.10.4
+Router(config-router)#network 192.168.3.0
+Router(config-router)#end
+Router#wr mem
